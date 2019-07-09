@@ -3,6 +3,8 @@ package com.example.firstapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,7 +21,24 @@ public class MainActivity extends AppCompatActivity {
         //this.testFunction();
         text = (TextView) findViewById(R.id.textView2);
         textField = (EditText) findViewById(R.id.editText);
+        textField.addTextChangedListener(new TextWatcher() {
 
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            public void afterTextChanged(Editable s) {
+
+                String newText = textField.getText().toString();
+                text.setText(newText);
+            }
+        });
     }
 
     public void testFunction(View v) {
